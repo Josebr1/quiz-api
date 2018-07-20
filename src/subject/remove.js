@@ -1,15 +1,14 @@
 import Subject from './../models/Subject';
 
 export default async (req, res) => {
-    let subject = new Subject(req.body);
     try {
-        await subject.save();
+        await Subject.findByIdAndRemove(req.params.id);
         return res
-            .status(201)
-            .json({ subject });
+            .status(204)
+            .end();
     } catch (err) {
         return res
             .status(500)
-            .json({ subject });
+            .end();
     }
 }
