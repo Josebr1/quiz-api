@@ -17,6 +17,6 @@ app.use(cors());
 
 routes(app);
 
-mongoose.connect('mongodb://localhost:27017/quiz_app');
+mongoose.connect('mongodb://localhost:27017/quiz_app', { useNewUrlParser: true });
 
 app.listen(PORT, HOST, () => console.log(`Express has been started at ${HOST}:${PORT}`));
